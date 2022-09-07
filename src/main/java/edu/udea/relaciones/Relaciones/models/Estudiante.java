@@ -16,13 +16,18 @@ public class Estudiante {
     private int nivelActual;
     @OneToOne(mappedBy = "estudiante")
     private Mentor mentor;
+    @ManyToOne
+    //@JoinColumn(name="grupo_id",insertable = false,updatable = false)
+    private Grupo grupo;
 
-    public Estudiante(int numeroDocumentoEstudiante, String nombre, String apellido, int nivelActual, Mentor mentor) {
+
+    public Estudiante(int numeroDocumentoEstudiante, String nombre, String apellido, int nivelActual, Mentor mentor, Grupo grupo) {
         this.numeroDocumentoEstudiante = numeroDocumentoEstudiante;
         this.nombre = nombre;
         this.apellido = apellido;
         this.nivelActual = nivelActual;
         this.mentor = mentor;
+        this.grupo = grupo;
     }
 
     public Estudiante() {
@@ -66,5 +71,13 @@ public class Estudiante {
 
     public void setMentor(Mentor mentor) {
         this.mentor = mentor;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
     }
 }
