@@ -1,6 +1,7 @@
 package edu.udea.relaciones.Relaciones.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,10 +10,12 @@ import java.util.List;
 @Table(name="grupo")
 public class Grupo {
 
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     @Id
     private String codigoGrupo;
     @Column
     private String nombreGrupo;
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     @Column
     private String descripcion;
     @JsonIgnore
@@ -20,6 +23,7 @@ public class Grupo {
     //@OneToMany
     //@JoinColumn(name = "grupo_id")
     private List<Estudiante> estudiantes;
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     @ManyToMany
     private List<Materia> materias;
 

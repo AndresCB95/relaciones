@@ -5,10 +5,7 @@ import edu.udea.relaciones.Relaciones.servicio.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,23 @@ public class EstudianteController {
     @PostMapping("/estudiante")
     public ResponseEntity<Estudiante> setEstudiante(@RequestBody Estudiante estudiante){
         return new ResponseEntity<>(estudianteService.save(estudiante),HttpStatus.OK);
+    }
+
+
+    @GetMapping("/estudiante/{idMentor}/mentor")
+    public ResponseEntity<Estudiante> getEstudiante(@PathVariable Integer idMentor){
+        return new ResponseEntity<>(
+                estudianteService.getEstudiante(idMentor),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/estudiante/{codigoGrupo}/grupo")
+    public ResponseEntity<List<Estudiante>> getEstudiantes(@PathVariable String codigoGrupo){
+        return new ResponseEntity<>(
+                estudianteService.getEstudiantes(codigoGrupo),
+                HttpStatus.OK
+        );
     }
     
 }

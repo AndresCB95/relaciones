@@ -1,5 +1,7 @@
 package edu.udea.relaciones.Relaciones.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -16,6 +18,7 @@ public class Mentor {
     private String apellido;
     @Column
     private int aniosExperiencia;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToOne
     private Estudiante estudiante;
 

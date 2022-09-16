@@ -16,6 +16,7 @@ public class Estudiante {
     private String apellido;
     @Column
     private int nivelActual;
+    //@JsonIgnore
     @OneToOne(mappedBy = "estudiante")
     private Mentor mentor;
 
