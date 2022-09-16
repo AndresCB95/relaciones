@@ -1,5 +1,7 @@
 package edu.udea.relaciones.Relaciones.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class Grupo {
     private String nombreGrupo;
     @Column
     private String descripcion;
+    @JsonIgnore
     @OneToMany(mappedBy = "grupo")
     //@OneToMany
     //@JoinColumn(name = "grupo_id")

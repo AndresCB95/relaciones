@@ -1,5 +1,7 @@
 package edu.udea.relaciones.Relaciones.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,7 @@ public class Estudiante {
     private int nivelActual;
     @OneToOne(mappedBy = "estudiante")
     private Mentor mentor;
+
     @ManyToOne
     //@JoinColumn(name="grupo_id",insertable = false,updatable = false)
     private Grupo grupo;
@@ -72,6 +75,7 @@ public class Estudiante {
     public void setMentor(Mentor mentor) {
         this.mentor = mentor;
     }
+
 
     public Grupo getGrupo() {
         return grupo;

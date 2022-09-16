@@ -1,5 +1,7 @@
 package edu.udea.relaciones.Relaciones.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Materia {
     private String tipo;
     @Column
     private String programaResumido;
+    @JsonIgnore
     @ManyToMany(mappedBy = "materias")
     private List<Grupo> grupos;
 
